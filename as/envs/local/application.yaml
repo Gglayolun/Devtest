@@ -2,25 +2,13 @@ apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
   annotations:
-    application.deploy.reform/app: dev
     application.deploy.reform/tags: ""
   creationTimestamp: null
   name: qc-calvin
   namespace: vela-app
 spec:
   components:
-  - dependsOn:
-    - qc-calvin-web-wizard-db-infrastructure
-    name: qc-calvin-web-wizard-web-web
-    properties:
-      domain: dev.com.hk
-      path: as
-      resource: Medium
-      secure: false
-    type: web-wizard-web
-  - dependsOn:
-    - qc-calvin-web-wizard-db-infrastructure
-    name: qc-calvin-web-wizard-api-api
+  - name: qc-calvin-web-wizard-api-api
     properties:
       domain: dev.com.hk
       expose: false
@@ -28,11 +16,6 @@ spec:
       resource: Medium
       secure: false
     type: web-wizard-api
-  - name: qc-calvin-web-wizard-db-infrastructure
-    properties:
-      resource: Medium
-      size: false
-    type: web-wizard-db
   policies:
   - name: topology-clusters
     properties:
