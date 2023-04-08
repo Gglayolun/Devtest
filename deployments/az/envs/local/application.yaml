@@ -1,0 +1,42 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  annotations:
+    application.deploy.reform/cluster: local
+    application.deploy.reform/commitHash: 953393008105cb702bb88e17a955bda942e9e4df
+    application.deploy.reform/deploymentNo: qc-calvin12-local_DP1
+    application.deploy.reform/environment: local
+    application.deploy.reform/name: qc-calvin12
+    application.deploy.reform/repository: https://github.com/Gglayolun/Devtest.git
+    application.deploy.reform/repositoryPath: az
+    application.deploy.reform/revision: 2023.04.1
+    application.deploy.reform/tags: ""
+    deploy.reform/domain: ""
+    deploy.reform/version: 6b5c82cf8fbd6720e41370072c0193f4158e3f6c
+  creationTimestamp: null
+  name: qc-calvin12
+  namespace: vela-app
+spec:
+  components:
+  - name: qc-calvin12-asc-web
+    properties:
+      domain: dev.com.hk
+      path: az
+      resource: Medium
+      secure: false
+    type: web-wizard-web
+  policies:
+  - name: topology-clusters
+    properties:
+      clusters:
+      - local
+    type: topology
+  workflow:
+    steps:
+    - name: deploy
+      properties:
+        ignoreTerraformComponent: false
+        policies:
+        - topology-clusters
+      type: deploy
+status: {}
