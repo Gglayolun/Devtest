@@ -1,0 +1,19 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  annotations:
+    application.deploy.reform/app: dev-1
+    application.deploy.reform/tags: ""
+  creationTimestamp: null
+  name: qc2-calvin
+  namespace: vela-system
+spec:
+  components:
+  - name: qc2-calvin-web-wizard-web-web
+    properties:
+      domain: static.com
+      path: aa
+      resource: Medium
+      secure: false
+    type: web-wizard-web
+status: {}
