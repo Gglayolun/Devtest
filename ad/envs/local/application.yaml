@@ -1,0 +1,33 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  annotations:
+    application.deploy.reform/app: dev
+    application.deploy.reform/tags: ""
+  creationTimestamp: null
+  name: calvin-qc
+  namespace: vela-app
+spec:
+  components:
+  - name: calvin-qc-web-wizard-web-web
+    properties:
+      domain: devs.com.hk
+      path: ad
+      resource: Medium
+      secure: false
+    type: web-wizard-web
+  policies:
+  - name: topology-clusters
+    properties:
+      clusters:
+      - local
+    type: topology
+  workflow:
+    steps:
+    - name: deploy
+      properties:
+        ignoreTerraformComponent: false
+        policies:
+        - topology-clusters
+      type: deploy
+status: {}
