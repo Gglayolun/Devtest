@@ -1,0 +1,18 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  annotations:
+    application.deploy.reform/tags: ""
+  creationTimestamp: null
+  name: qc-calvin12
+  namespace: vela-system
+spec:
+  components:
+  - name: qc-calvin12-asc-web
+    properties:
+      domain: dev.com.hk
+      path: az
+      resource: Medium
+      secure: false
+    type: web-wizard-web
+status: {}
