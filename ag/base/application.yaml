@@ -1,0 +1,18 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  annotations:
+    application.deploy.reform/tags: ""
+  creationTimestamp: null
+  name: qc-test-cal
+  namespace: vela-system
+spec:
+  components:
+  - name: qc-test-cal-test-web
+    properties:
+      domain: dev.com.hk
+      path: ag
+      resource: Medium
+      secure: false
+    type: web-wizard-web
+status: {}
