@@ -1,0 +1,32 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  annotations:
+    application.deploy.reform/app: dev
+    application.deploy.reform/tags: ""
+  creationTimestamp: null
+  name: qc-calvin
+  namespace: vela-system
+spec:
+  components:
+  - name: qc-calvin-web-wizard-web-web
+    properties:
+      domain: dev.com.hk
+      path: as
+      resource: Medium
+      secure: false
+    type: web-wizard-web
+  - name: qc-calvin-web-wizard-api-api
+    properties:
+      domain: dev.com.hk
+      expose: false
+      path: as
+      resource: Medium
+      secure: false
+    type: web-wizard-api
+  - name: qc-calvin-web-wizard-db-infrastructure
+    properties:
+      resource: Medium
+      size: false
+    type: web-wizard-db
+status: {}
