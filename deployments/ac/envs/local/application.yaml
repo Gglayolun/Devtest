@@ -2,15 +2,14 @@ apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
   annotations:
-    application.deploy.reform/app: dev
     application.deploy.reform/cluster: local
-    application.deploy.reform/commitHash: 2b13dea482e41ef2040366018a447426cc36e53d
-    application.deploy.reform/deploymentNo: calvin-local_DP1
+    application.deploy.reform/commitHash: 867def2f6554aa08357a82357e6f50339446fb57
+    application.deploy.reform/deploymentNo: calvin-local_DP2
     application.deploy.reform/environment: local
     application.deploy.reform/name: calvin
     application.deploy.reform/repository: https://github.com/Gglayolun/Devtest.git
     application.deploy.reform/repositoryPath: ac
-    application.deploy.reform/revision: 2023.04.1
+    application.deploy.reform/revision: 2023.04.2
     application.deploy.reform/tags: ""
     deploy.reform/domain: ""
     deploy.reform/version: 6b5c82cf8fbd6720e41370072c0193f4158e3f6c
@@ -32,6 +31,13 @@ spec:
         name: http
         port: 80
         protocol: TCP
+    traits:
+    - properties:
+        class: nginx
+        classInSpec: false
+        http:
+          "1": 2
+      type: gateway
     type: webservice
   policies:
   - name: topology-clusters
