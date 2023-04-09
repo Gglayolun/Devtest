@@ -2,7 +2,6 @@ apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
   annotations:
-    application.deploy.reform/app: dev
     application.deploy.reform/tags: ""
   creationTimestamp: null
   name: calvin-qc
@@ -16,4 +15,12 @@ spec:
       resource: Medium
       secure: false
     type: web-wizard-web
+  - name: calvin-qc-qc-newapi-api
+    properties:
+      domain: static.com
+      expose: false
+      path: ax
+      resource: Medium
+      secure: false
+    type: web-wizard-api
 status: {}
