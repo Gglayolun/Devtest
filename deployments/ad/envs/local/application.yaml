@@ -2,15 +2,14 @@ apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
   annotations:
-    application.deploy.reform/app: dev
     application.deploy.reform/cluster: local
-    application.deploy.reform/commitHash: 3c67b1b12371bfc52d9589a75bb282cf3e7cda11
-    application.deploy.reform/deploymentNo: calvin-qc-local_DP1
+    application.deploy.reform/commitHash: f6e4ae0d37bda7d8d6e0d20a9ed40fd0cf912205
+    application.deploy.reform/deploymentNo: calvin-qc-local_DP2
     application.deploy.reform/environment: local
     application.deploy.reform/name: calvin-qc
     application.deploy.reform/repository: https://github.com/Gglayolun/Devtest.git
     application.deploy.reform/repositoryPath: ad
-    application.deploy.reform/revision: 2023.04.1
+    application.deploy.reform/revision: 2023.04.2
     application.deploy.reform/tags: ""
     deploy.reform/domain: ""
     deploy.reform/version: 6b5c82cf8fbd6720e41370072c0193f4158e3f6c
@@ -26,6 +25,14 @@ spec:
       resource: Medium
       secure: false
     type: web-wizard-web
+  - name: calvin-qc-qc-newapi-api
+    properties:
+      domain: static.com
+      expose: false
+      path: ax
+      resource: Medium
+      secure: false
+    type: web-wizard-api
   policies:
   - name: topology-clusters
     properties:
